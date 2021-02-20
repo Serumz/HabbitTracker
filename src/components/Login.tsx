@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
 
-let User = require('../models/user.model');
-
 export const Login: React.SFC<{}> = () => {
     const [usernameValue, setUsername] = useState("");
     const [passwordValue, setPassword] = useState("");
-    let userDetails = new User(usernameValue, passwordValue);
-
     return (
       <div>
         <form onSubmit={function(event) {

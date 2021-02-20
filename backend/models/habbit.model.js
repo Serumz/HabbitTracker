@@ -6,9 +6,8 @@ const exerciseSchema = new Schema({
     username: { type: String, required: true },
     type: {type: String, required: true },
     description: { type: String, required: true },
-    duration: {type: Number, required: true },
-    count: {type: Number, required: true },
-    distance: {type: Number, required: true },
+    trackingtype: { type: String, required: true },
+    number: {type: Number, required: true },
     date: {type: Date, required: true}
 }, {
     timestamps: true,

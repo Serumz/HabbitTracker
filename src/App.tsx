@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import icon from '../assets/icon.svg';
 import './App.global.css';
+import { NavBar } from './components/NavBar';
+
 
 const Hello = () => {
   return (
@@ -40,11 +42,16 @@ const Hello = () => {
   );
 };
 
+
+
+
 export default function App() {
   return (
     <Router>
+      <NavBar/>
       <Switch>
         <Route path="/" component={Hello} />
+        <Route path="/account" component={Hello} />
       </Switch>
     </Router>
   );

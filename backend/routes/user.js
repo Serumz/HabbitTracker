@@ -7,6 +7,12 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/login').get((req, res) => {
+    User.find(users => users.body.username == req.body.username && users.body.password == req.body.password)
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
     const username = req.body.username;
     const password = req.body.password;

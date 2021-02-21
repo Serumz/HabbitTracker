@@ -7,11 +7,12 @@ export const Login: React.SFC<{}> = () => {
       <div>
         <form onSubmit={function(event) {
                 event.preventDefault();
-                fetch('httpslocalhost:5000/users/login', {
+                fetch('https://habbit-tracker-db.herokuapp.com:46877/users/add', {
                   method: "POST",
                   body: JSON.stringify({username: usernameValue, password: passwordValue})
                 })
-                .then();
+                .then(res => console.log(res))
+                .catch(err => console.log('Error: ' + err));
             }}>
               <label><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" value={usernameValue} onChange={function(event) {
@@ -21,6 +22,7 @@ export const Login: React.SFC<{}> = () => {
                 <input type="password" placeholder="Enter Password" value={passwordValue} onChange={function(event) {
                     setPassword(event.target.value)
                 }}/>
+                <input type="submit" value="Submit"></input>
             </form>
       </div>
     )

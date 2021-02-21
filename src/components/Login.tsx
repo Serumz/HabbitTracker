@@ -7,9 +7,10 @@ export const Login: React.SFC<{}> = () => {
       <div>
         <form onSubmit={function(event) {
                 event.preventDefault();
-                fetch('https://habbit-tracker-db.herokuapp.com:46877/users/add', {
+                fetch('https://habbit-tracker-db.herokuapp.com/users/add', {
                   method: "POST",
-                  body: JSON.stringify({username: usernameValue, password: passwordValue})
+                  body: JSON.stringify({username: usernameValue, password: passwordValue}),
+                  headers: {'Content-Type': 'application/json'}
                 })
                 .then(res => console.log(res))
                 .catch(err => console.log('Error: ' + err));

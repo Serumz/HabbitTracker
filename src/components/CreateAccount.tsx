@@ -1,17 +1,14 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
 
-
-export const Login: React.SFC<{}> = () => {
+export const CreateAccount: React.SFC<{}> = () => {
     const [usernameValue, setUsername] = useState("");
     const [passwordValue, setPassword] = useState("");
     return (
-        <div>
-            <h1>Habbit Tracker</h1>
-            <h2>Login</h2>
-            <form onSubmit={function(event) {
+      <div>
+        <h1>Create an Account</h1>
+        <form onSubmit={function(event) {
                 event.preventDefault();
-                fetch('https://habbit-tracker-db.herokuapp.com/users/login', {
+                fetch('https://habbit-tracker-db.herokuapp.com/users/add', {
                   method: "POST",
                   body: JSON.stringify({username: usernameValue, password: passwordValue}),
                   headers: {'Content-Type': 'application/json'}
@@ -27,9 +24,8 @@ export const Login: React.SFC<{}> = () => {
                 <input type="password" placeholder="Enter Password" value={passwordValue} onChange={function(event) {
                     setPassword(event.target.value)
                 }}/>
-                <input type="submit" value="Login"></input>
+                <input type="submit" value="Create Account"></input>
             </form>
-            <Link to="/create-account"><p>Create an Account</p></Link>
-        </div>
+      </div>
     )
-};
+  };
